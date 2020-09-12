@@ -9,11 +9,14 @@
   },
   "author": "",
   "license": "ISC",
+  "devDependencies": {},
   "dependencies": {
     "ascii-table": "0.0.9",
     "common-tags": "^1.8.0",
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
+    "fs": "0.0.1-security",
+    "node-fetch": "^2.6.1",
     "random-puppy": "^1.1.0",
     "request": "^2.88.2",
     "response": "^0.18.0"
