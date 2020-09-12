@@ -1,5 +1,5 @@
 {
-  "name": "WhiteBear",
+  "name": "whitebear",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -14,6 +14,7 @@
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
     "random-puppy": "^1.1.0",
+    "request": "^2.88.2",
     "response": "^0.18.0"
   }
 }
