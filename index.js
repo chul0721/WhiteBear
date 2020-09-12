@@ -23,7 +23,7 @@ client.on('ready', () => {
   console.log(`${client.user.tag}으로 접속을 완료하였습니다.`);
   client.user.setActivity('화베야 도움', { type: 'WATCHING' })
 });
-let prefix = config.prefix;
+let prefix = process.env.prefix;
 
 
 client.on('messageUpdate', (oldMessage, newMessage) => {
