@@ -161,4 +161,4 @@ client.on('message', message => {
       ({ response: { replies: [{ text }] } }) => {message.reply(text)})
 });
 
-client.login(config.token);
+client.login(process.env.token);
