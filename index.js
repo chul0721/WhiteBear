@@ -146,7 +146,7 @@ client.on('message', message => {
   if (command) {
       command.run(client, message, args);
   }
-  if(message.content.split(' ')[0] != `prefix`) return;
+  if(message.content.split(' ')[0] != prefix) return;
   
     require("node-fetch")(`https://builder.pingpong.us/api/builder/5f367a9de4b00e31991574f1/integration/v0.2/custom/${message.author.id}`,
     {
