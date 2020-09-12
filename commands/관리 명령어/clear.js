@@ -24,8 +24,8 @@ module.exports = {
             deleteAmount = parseInt(args[0]);
         }
 
-        message.channel.bulkDelete(deleteAmount, true)
-            .then(deleted => message.channel.send(` \`${deleted.size}\` 개의 메시지를 삭제하였습니다.`))
+        message.channel.bulkDelete(deleteAmount + 1, true)
+            .then(deleted => message.channel.send(` \`${deleted.size - 1}\` 개의 메시지를 삭제하였습니다.`))
             .catch(err => message.reply(`Something went wrong... ${err}`));
     }
 }
