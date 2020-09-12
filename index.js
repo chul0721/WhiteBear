@@ -23,7 +23,7 @@ client.on('ready', () => {
   console.log(`${client.user.tag}으로 접속을 완료하였습니다.`);
   client.user.setActivity('화베야 도움', { type: 'WATCHING' })
 });
-let prefix = process.env.prefix;
+const prefix = process.env.prefix;
 
 
 client.on('messageUpdate', (oldMessage, newMessage) => {
@@ -43,24 +43,24 @@ client.on('message', message => {
   if (message.author.bot) return;
   if (!message.guild) return;
 
-  if (message.content === `${process.env.prefix} 핑`) {
+  if (message.content === prefix + ` 핑`) {
     message.channel.send('Pinging...').then(message => {
         message.edit('Pong! Ponged back the ping in milliseconds!');
     })
   }
 
-  else if (message.content === `${process.env.prefix} 개발자`) {
+  else if (message.content === prefix + ` 개발자`) {
     message.reply('int:tm: 에서 개발되었어요.');
   }
 
-  else if (message.content == `${process.env.prefix} 초대`) {
+  else if (message.content == prefix + `초대`) {
     message.reply('https://discord.com/api/oauth2/authorize?client_id=744793044678737961&permissions=8&scope=bot');
   }
   else if (message.mentions.users.some(x => x.id == client.user.id ) &&  !message.author.bot) {
     message.reply('저를 부르셨나요? 도움이 필요하시다면 `화베야 도움`을 입력해보세요!');
   }
 
-  else if (message.content === `${process.env.prefix} 도움`) {
+  else if (message.content === prefix + ` 도움`) {
     const help = new Discord.MessageEmbed()
     .setColor('#0099ff')
     .setTitle('화베야 도움')
@@ -84,7 +84,7 @@ client.on('message', message => {
 
     message.channel.send(help)
   }
-  else if (message.content === `${process.env.prefix} 도움 엔터테인먼트`) {
+  else if (message.content === prefix + ` 도움 엔터테인먼트`) {
       const entertainment = new Discord.MessageEmbed()
       .setColor('#0099ff')
       .setTitle('화베야 도움 엔터테인먼트')
@@ -140,7 +140,7 @@ client.on('message', message => {
   if (command) {
       command.run(client, message, args);
   }
-  else if(message.content.split(' ')[0] != `${process.env.prefix}`) return;
+  else if(message.content.split(' ')[0] != prefix) return;
   
     require("node-fetch")(`https://builder.pingpong.us/api/builder/5f367a9de4b00e31991574f1/integration/v0.2/custom/${message.author.id}`,
     {
