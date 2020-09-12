@@ -21,12 +21,11 @@ module.exports = {
         if (parseInt(args[0]) > 100) {
             deleteAmount = 100;
         } else {
-            deleteAmount = parseInt(args[0]);
+            deleteAmount = parseInt(args[0] + 1);
         }
 
         message.channel.bulkDelete(deleteAmount, true)
             .then(deleted => message.channel.send(` \`${deleted.size}\` 개의 메시지를 삭제하였습니다.`))
             .catch(err => message.reply(`Something went wrong... ${err}`));
-        return
     }
 }
