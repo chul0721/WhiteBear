@@ -1,4 +1,4 @@
-const { PREFIX, OWNERS, AllowPrefix, IgnorePrefix, NoticeMode } = require('./config.js')
+const { PREFIX, OWNERS, AllowPrefix, IgnorePrefix, NoticeMode } = require('./config')
       fs = require('fs')
       Discord = require('discord.js')
       Client = new Discord.Client()
