@@ -55,7 +55,7 @@ client.on('message', message => {
     })
     return
   }
-   if (message.content === '${prefix} 프사') {
+   if (message.content === `${prefix} 프사`) {
     message.reply(message.author.displayAvatarURL());
     return
   }
