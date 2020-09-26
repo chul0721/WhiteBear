@@ -1,12 +1,10 @@
-const { TOKEN, PREFIX, OWNERS, AllowPrefix, IgnorePrefix, NoticeMode } = require('./configs')
+const { PREFIX, OWNERS, AllowPrefix, IgnorePrefix, NoticeMode } = require('./config.js')
       fs = require('fs')
       Discord = require('discord.js')
       Client = new Discord.Client()
       MessageEmbed = new Discord.MessageEmbed()
       noticeEmbed = new Discord.MessageEmbed()
 let channelData = require('./channels.json')
-
-Client.login(TOKEN)
 
 module.exports = {
 
