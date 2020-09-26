@@ -49,7 +49,10 @@ client.on('message', message => {
     })
     return
   }
-
+   if (message.content === '프사') {
+    message.reply(message.author.displayAvatarURL());
+    return
+  }
   if (message.content === prefix + ` 개발자`) {
     message.reply('int:tm: 에서 개발되었어요.');
     return
@@ -105,11 +108,6 @@ client.on('message', message => {
       message.channel.send(entertainment);
       return
   }
-client.on('message', message => {
-  if (message.content === '프사') {
-    message.reply(message.author.displayAvatarURL());
-  }
-});
 
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const cmd = args.shift().toLowerCase();
