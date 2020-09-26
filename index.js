@@ -158,8 +158,6 @@ client.on('message', message => {
   }
  
 
-bot.on('message', async message => {
-
     if (message.content.startsWith(`${prefix} 공지 `)) {
 
         if (bot.configs[1].includes(message.author.id)) {
@@ -198,7 +196,6 @@ bot.on('message', async message => {
         
     }
 
-})
 
     
  const pingpongprefix = $
