@@ -90,6 +90,7 @@ client.on('message', message => {
       { name: '레벨', value: '자신의 레벨을 알려줍니다. 만약 레벨 뒤에 사람을 맨션한다면 그 사람의 레벨을 알려줍니다.', inline: true },
       { name: '정보 (사람 맨션)', value: '맨션한 사람의 정보를 알려드립니다.', inline: true },
       { name: '도움 엔터테인먼트', value: '엔터테인먼트 명령어들을 알려드립니다.', inline: true },
+      { name: '$(말)', value: 'WhiteBear과의 일상대화가 가능합니다.', inline: true}
     )
     .setTimestamp()
     .setFooter('2020 int ©. All Rights Reserved.');
@@ -157,26 +158,26 @@ client.on('message', message => {
       command.run(client, message, args);
   }
  
-
-    if (message.content.startsWith(`${prefix} 공지 `)) {
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+if (message.content.startsWith(`${prefix} 공지 `)) {
 
         if (bot.config[1].includes(message.author.id)) {
 
-            message.channel.send(messageEmbed.setTitle(`🔍 ${bot.guilds.cache.size}개의 서버에 공지가 발신됩니다`).addField(`공지의 내용은 다음과 같습니다`, `\n${message.content.substring(`${bot.config[0]}공지 `.length)}\n`).setColor("#47CDFF").setFooter('by Oasics#5074')).then((noticeEmbed) => {
+            message.channel.send(messageEmbed.setTitle(`🔍 ${bot.guilds.cache.size}개의 서버에 공지가 발신됩니다`).addField(`공지의 내용은 다음과 같습니다`, `\n${message.content.substring(`${prefix} 공지 `.length)}\n`).setColor("#47CDFF").setFooter('by int')).then((noticeEmbed) => {
 
                 noticeEmbed.react('⭕'); noticeEmbed.react('❌'); noticeEmbed.awaitReactions((reaction, user) => (reaction.emoji.name === '⭕' || reaction.emoji.name === '❌') && user.id === message.author.id, { max: 1 }).then((collected) => {
 
                     if (collected.array()[0].emoji.name === '⭕') {
 
-                        messageEmbed.fields = []; sendNotice(message, message.content.substring(`${bot.config[0]}공지 `.length), noticeEmbed).catch(() => noticeEmbed.edit(messageEmbed.addField('⚠ 오류가 발생하였습니다', '코드에 손상이 있는지 확인해주세요.').setColor("#FFD500").setFooter('by Oasics#5074'))) 
+                        messageEmbed.fields = []; sendNotice(message, message.content.substring(`${prefix} 공지 `.length), noticeEmbed).catch(() => noticeEmbed.edit(messageEmbed.addField('⚠ 오류가 발생하였습니다', '코드에 손상이 있는지 확인해주세요.').setColor("#FFD500").setFooter('by int'))) 
 
                             let noticeResult = ``; bot.noticeGuilds.forEach(i => { if (!i[2]) return;  noticeResult += `${i[0]}: ${i[2]} \n` }); noticeResult += '위에 적혀있지 않은 서버는 정상적으로 발신되었습니다.'
 
-                            noticeEmbed.edit(messageEmbed.setTitle('✅ 공지 발신이 완료되었습니다!').addField('결과:', `\`\`\`\n${noticeResult}\`\`\``).setColor("#83FF83").setFooter('by Oasics#5074')); messageEmbed.fields = [];
+                            noticeEmbed.edit(messageEmbed.setTitle('✅ 공지 발신이 완료되었습니다!').addField('결과:', `\`\`\`\n${noticeResult}\`\`\``).setColor("#83FF83").setFooter('by int')); messageEmbed.fields = [];
 
                     } else {
 
-                        messageEmbed.fields = []; noticeEmbed.edit(messageEmbed.setTitle('❌ 공지 발신이 취소되었습니다').setColor("#FF4747").setFooter('by Oasics#5074'))
+                        messageEmbed.fields = []; noticeEmbed.edit(messageEmbed.setTitle('❌ 공지 발신이 취소되었습니다').setColor("#FF4747").setFooter('by int'))
 
                     }
 
@@ -186,19 +187,19 @@ client.on('message', message => {
 
         } else {
 
-            message.channel.send(messageEmbed.setTitle('⚠ 당신은 봇 관리자로 등록되어있지 않습니다.').setColor("#FFD500").setFooter('by Oasics#5074'))
+            message.channel.send(messageEmbed.setTitle('⚠ 당신은 봇 관리자로 등록되어있지 않습니다.').setColor("#FFD500").setFooter('by int'))
     
         }
 
-    } else if (message.content === `${bot.config[0]}채널설정`) {
+    } else if (message.content === `${prefix} 채널설정`) {
 
         addChannel(message).catch((e) => { if (e) return message.channel.send(e)}); message.channel.send(`✅ 공지를 수신할 채널이 <#${message.channel.id}> 로 설정되었습니다!`); 
         
     }
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     
- const pingpongprefix = $
+ const pingpongprefix = '$'
   if(message.content.split(' ')[0] != pingpongprefix) return;
   
     require("node-fetch")(`https://builder.pingpong.us/api/builder/5f367a9de4b00e31991574f1/integration/v0.2/custom/${message.author.id}`,
