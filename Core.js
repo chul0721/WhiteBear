@@ -12,7 +12,7 @@ module.exports = {
 
     Ready: async () => {
 
-    Client.configs = [PREFIX, OWNERS]
+    Client.config = [PREFIX, OWNERS]
     
     Client.on('ready', () => {
       console.log('core.js가 준비되었습니다.')
