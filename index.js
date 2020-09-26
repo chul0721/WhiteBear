@@ -25,7 +25,11 @@ client.on('ready', () => {
 });
 let prefix = process.env.prefix;
 
-
+client.on('guildMemberAdd', member => {
+  const channel = member.guild.channels.cache.find(ch => ch.name === 'access');
+  if (!channel) return;
+  channel.send(` 오신것을 환영합니다, ${member}`);
+});
 client.on('messageUpdate', (oldMessage, newMessage) => {
 
   if (oldMessage.content === 'Pinging...') {
