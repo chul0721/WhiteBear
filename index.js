@@ -160,7 +160,7 @@ client.on('message', message => {
 
     if (message.content.startsWith(`${prefix} 공지 `)) {
 
-        if (bot.configs[1].includes(message.author.id)) {
+        if (bot.config[1].includes(message.author.id)) {
 
             message.channel.send(messageEmbed.setTitle(`🔍 ${bot.guilds.cache.size}개의 서버에 공지가 발신됩니다`).addField(`공지의 내용은 다음과 같습니다`, `\n${message.content.substring(`${bot.configs[0]}공지 `.length)}\n`).setColor("#47CDFF").setFooter('by Oasics#5074')).then((noticeEmbed) => {
 
