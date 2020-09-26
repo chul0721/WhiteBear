@@ -198,7 +198,7 @@ if (message.content.startsWith(`${prefix} 공지 `)) {
     }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
  
-  if (message.content.startsWith(config.prefix + "eval")) {
+  if (message.content.startsWith(prefix + " eval")) {
     if(message.author.id !== config.OWNERS){
       const noeval = new Discord.MessageEmbed()
       .setColor('#0099ff')
