@@ -105,6 +105,12 @@ client.on('message', message => {
       message.channel.send(entertainment);
       return
   }
+client.on('message', message => {
+  if (message.content === '프사') {
+    message.reply(message.author.displayAvatarURL());
+  }
+});
+
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const cmd = args.shift().toLowerCase();
 
