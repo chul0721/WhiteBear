@@ -161,7 +161,7 @@ client.on('message', message => {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 if (message.content.startsWith(`${prefix} 공지 `)) {
 
-        if (bot.config[1].includes(message.author.id)) {
+        if (message.author.id == config.OWNERS) {
 
             message.channel.send(messageEmbed.setTitle(`🔍 ${bot.guilds.cache.size}개의 서버에 공지가 발신됩니다`).addField(`공지의 내용은 다음과 같습니다`, `\n${message.content.substring(`${prefix} 공지 `.length)}\n`).setColor("#47CDFF").setFooter('by int')).then((noticeEmbed) => {
 
@@ -197,8 +197,36 @@ if (message.content.startsWith(`${prefix} 공지 `)) {
         
     }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+ 
+  if (message.content.startsWith(config.prefix + "eval")) {
+    if(message.author.id !== config.OWNERS){
+      const noeval = new Discord.MessageEmbed()
+      .setColor('#0099ff')
+      .setTitle('eval fail')
+      .setAuthor('WhiteBear')
+      .setDescription('관리자 권한이 없어 실행이 불가능해요.')
+      .setTimestamp()
+      .setFooter('2020 int ©. All Rights Reserved.');
     
+  
+      message.channel.send(noeval)
+      return
+    };
+    try {
+      const code = args.join(" ");
+      let evaled = eval(code);
+ 
+      if (typeof evaled !== "string")
+        evaled = require("util").inspect(evaled);
+ 
+      message.channel.send(clean(evaled), {code:"xl"});
+    } catch (err) {
+      message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
+    }
+  }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
  const pingpongprefix = '$'
   if(message.content.split(' ')[0] != pingpongprefix) return;
   
@@ -220,5 +248,6 @@ if (message.content.startsWith(`${prefix} 공지 `)) {
     .then(
       ({ response: { replies: [{ text }] } }) => {message.reply(text)})
 });
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 client.login(process.env.token);
