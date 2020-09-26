@@ -15,8 +15,7 @@ module.exports = {
     Client.configs = [PREFIX, OWNERS]
     
     Client.on('ready', () => {
-      console.log(`토큰: ${TOKEN} \n접두사: ${Client.configs[0]} \n관리자: ${Client.configs[1]}`)
-      console.log('준비되었습니다!')
+      console.log('core.js가 준비되었습니다.')
       })
 
     },
