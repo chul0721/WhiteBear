@@ -55,7 +55,7 @@ client.on('message', message => {
     })
     return
   }
-   if (message.content === '프사') {
+   if (message.content === '${prefix} 프사') {
     message.reply(message.author.displayAvatarURL());
     return
   }
@@ -199,7 +199,7 @@ if (message.content.startsWith(`${prefix} 공지 `)) {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
  
   if (message.content.startsWith(prefix + " eval")) {
-    if(message.author.id !== config.OWNERS){
+    if(message.author.id !== config.OWNERS[0]){
       const noeval = new Discord.MessageEmbed()
       .setColor('#0099ff')
       .setTitle('eval fail')
