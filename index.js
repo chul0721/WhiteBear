@@ -90,7 +90,7 @@ client.on('message', message => {
       { name: '레벨', value: '자신의 레벨을 알려줍니다. 만약 레벨 뒤에 사람을 맨션한다면 그 사람의 레벨을 알려줍니다.', inline: true },
       { name: '정보 (사람 맨션)', value: '맨션한 사람의 정보를 알려드립니다.', inline: true },
       { name: '도움 엔터테인먼트', value: '엔터테인먼트 명령어들을 알려드립니다.', inline: true },
-      { name: '$(말)', value: 'WhiteBear과의 일상대화가 가능합니다.', inline: true}
+      { name: '화베 (말)', value: 'WhiteBear과의 일상대화가 가능합니다.', inline: true}
     )
     .setTimestamp()
     .setFooter('2020 int ©. All Rights Reserved.');
@@ -227,14 +227,14 @@ if (message.content.startsWith(`${prefix} 공지 `)) {
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
- const pingpongprefix = '$'
-  if(message.content.split(' ')[0] != pingpongprefix) return;
+ const pingpongprefix = '화베'
+  if(message.content.split(' ')[0] != `${pingpongprefix}`) return;
   
-    require("node-fetch")(`https://builder.pingpong.us/api/builder/5f367a9de4b00e31991574f1/integration/v0.2/custom/${message.author.id}`,
+    require("node-fetch")(`https://builder.pingpong.us/api/builder/${process.env.pingpongid}/integration/v0.2/custom/${message.author.id}`,
     {
       method: "POST",
       headers:{
-                "Authorization": `Basic a2V5OjczOWMzNWI1NzFiOGJlYjMwMjlmOWU3MmY0Y2Y0YzAx`,
+                "Authorization": `${process.env.pingpongauth}`,
                 "Content-Type" : "application/json"
               },
       body: JSON.stringify({
@@ -247,7 +247,9 @@ if (message.content.startsWith(`${prefix} 공지 `)) {
     .then(r => r.json())
     .then(
       ({ response: { replies: [{ text }] } }) => {message.reply(text)})
-});
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+});
 
 client.login(process.env.token);
