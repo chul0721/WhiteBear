@@ -1,9 +1,9 @@
 const Discord = require('discord.js');
 const util = require('util');
 module.exports = {
-    name: 'eval', 
-    description: 'JavaScript 코드를 바로 실행해요. (개발자만 가능)',
+    name: 'eval',
     category: '관리 명령어',
+    description: 'JavaScript 코드를 바로 실행해요. (개발자만 가능)',
     run: async (client, message, args, db) => {
         if (!['687866011013218349', '647736678815105037'].includes(message.author.id)) return message.channel.send(`${client.user.username} 개발자만 사용할 수 있어요.`);
         let input = args.slice(1).join(' ');
