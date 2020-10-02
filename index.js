@@ -196,36 +196,7 @@ if (message.content.startsWith(`${prefix} 공지 `)) {
         addChannel(message).catch((e) => { if (e) return message.channel.send(e)}); message.channel.send(`✅ 공지를 수신할 채널이 <#${message.channel.id}> 로 설정되었습니다!`); 
         
     }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
- 
-  if (message.content.startsWith(prefix + " eval")) {
-    if(message.author.id !== config.OWNERS[0]){
-      const noeval = new Discord.MessageEmbed()
-      .setColor('#0099ff')
-      .setTitle('eval fail')
-      .setAuthor('WhiteBear')
-      .setDescription('관리자 권한이 없어 실행이 불가능해요.')
-      .setTimestamp()
-      .setFooter('2020 int ©. All Rights Reserved.');
-    
-  
-      message.channel.send(noeval)
-      return
-    };
-    try {
-      const code = args.join(" ");
-      let evaled = eval(code);
- 
-      if (typeof evaled !== "string")
-        evaled = require("util").inspect(evaled);
- 
-      message.channel.send(clean(evaled), {code:"xl"});
-    } catch (err) {
-      message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
-    }
-  }
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
  const pingpongprefix = '화베'
   if(message.content.split(' ')[0] != `${pingpongprefix}`) return;
