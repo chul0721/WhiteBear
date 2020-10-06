@@ -25,7 +25,7 @@ client.on('ready', () => {
   console.log(`${client.user.tag}으로 접속을 완료하였습니다.`);
     setInterval(() => {
 
-        switch (Math.floor(Math.random() * 5)) {
+        switch (Math.floor(Math.random() * 6)) {
             case 0:
                 client.user.setPresence({
                     status: 'online',
@@ -58,6 +58,24 @@ client.on('ready', () => {
                     status: 'online',
                     activity: {
                         name: `화베야 도움 이라고 입력해보세요!`,
+                        type: 'PLAYING'
+                    }
+                });
+                break;
+            case 4:
+                client.user.setPresence({
+                    status: 'online',
+                    activity: {
+                        name: `화베의 문의/신고는 화베야 서포트!`,
+                        type: 'PLAYING'
+                    }
+                });
+                break;
+            case 5:
+                client.user.setPresence({
+                    status: 'online',
+                    activity: {
+                        name: `화베를 자기 서버에 추가하고 싶다면? 화베야 초대!`,
                         type: 'PLAYING'
                     }
                 });
