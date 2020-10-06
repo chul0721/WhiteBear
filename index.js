@@ -64,6 +64,7 @@ client.on('ready', () => {
                 break;
         }
     }, 10000);
+ });
 let prefix = process.env.prefix;
 
 client.on('guildMemberAdd', member => {
