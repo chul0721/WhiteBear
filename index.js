@@ -22,11 +22,12 @@ client.categories = fs.readdirSync("./commands/");
 });
 
 client.on('ready', () => {
+  console.log(`${client.user.tag}으로 접속을 완료하였습니다.`);
     setInterval(() => {
 
         switch (Math.floor(Math.random() * 5)) {
             case 0:
-                client.user.setPresence({
+                client.user.setActivity({
                     status: 'online',
                     activity: {
                         name: `할로윈 기념 프사인 이것은 Cod3Breaker#0568님에 의해 만들어졌어요!`,
@@ -35,7 +36,7 @@ client.on('ready', () => {
                 });
                 break;
             case 1:
-                client.user.setPresence({
+                client.user.setActivity({
                     status: 'online',
                     activity: {
                         name: `이 메시지는 10초마다 바뀝니다!`,
@@ -44,7 +45,7 @@ client.on('ready', () => {
                 });
                 break;
             case 2:
-                client.user.setPresence({
+                client.user.setActivity({
                     status: 'online',
                     activity: {
                         name: `저는 int님의 아들이에요!`,
@@ -53,7 +54,7 @@ client.on('ready', () => {
                 });
                 break;
             case 3:
-                client.user.setPresence({
+                client.user.setActivity({
                     status: 'online',
                     activity: {
                         name: `화베야 도움 이라고 입력해보세요!`,
