@@ -9,7 +9,6 @@ const fs = require("fs");
 const request = require('request');
 const response = require('response');
 let db = JSON.parse(fs.readFileSync("./database.json", "utf8"));
-const { bot, messageEmbed, sendNotice, addChannel } = require('./Core.js')
 
 
 client.commands = new API.Collection();
