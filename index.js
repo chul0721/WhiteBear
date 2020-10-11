@@ -16,9 +16,7 @@ client.aliases = new API.Collection();
 client.categories = fs.readdirSync("./commands/");
 
 
-["command"].forEach(handler => {
-    require(`./handlers/${handler}`)(client);
-});
+
 
 client.on('ready', () => {
   console.log(`${client.user.tag}으로 접속을 완료하였습니다.`);
