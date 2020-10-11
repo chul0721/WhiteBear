@@ -143,9 +143,7 @@ client.on('message', message => {
       { name: '정보 (사람 맨션)', value: '맨션한 사람의 정보를 알려드립니다.', inline: true },
       { name: '서버정보', value: '해당 메시지를 보낸 서버의 정보를 알려드립니다.', inline: true },
       { name: '레벨', value: '자신의 레벨을 알려줍니다. 만약 레벨 뒤에 사람을 맨션한다면 그 사람의 레벨을 알려줍니다.', inline: true },
-      { name: '정보 (사람 맨션)', value: '맨션한 사람의 정보를 알려드립니다.', inline: true },
-      { name: '도움 엔터테인먼트', value: '엔터테인먼트 명령어들을 알려드립니다.', inline: true },
-      { name: '화베 (말)', value: 'WhiteBear과의 일상대화가 가능합니다.', inline: true}
+      { name: '도움 엔터테인먼트', value: '엔터테인먼트 명령어들을 알려드립니다.', inline: true }
     )
     .setTimestamp()
     .setFooter('2020 int ©. All Rights Reserved.');
