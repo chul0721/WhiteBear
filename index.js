@@ -15,7 +15,9 @@ client.commands = new API.Collection();
 client.aliases = new API.Collection();
 client.categories = fs.readdirSync("./commands/");
 
-
+["command"].forEach(handler => {
+    require(`./handlers/${handler}`)(client);
+});
 
 
 client.on('ready', () => {
