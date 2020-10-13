@@ -214,8 +214,7 @@ client.on('message', message => {
   }
  
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    let prefix2 = "화베";
-    if(message.content.split(' ')[0] != `${prefix2}`) return;
+    if(message.content.split(' ')[0] != `화베`) return;
     require("node-fetch")(`https://builder.pingpong.us/api/builder/5f367a9de4b00e31991574f1/integration/v0.2/custom/${message.author.id}`,
     {
       method: "POST",
