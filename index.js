@@ -212,8 +212,9 @@ client.on('message', message => {
   if (command) {
       command.run(client, message, args);
   }
- 
+ });
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+client.on('message', message => {
     if(message.content.split(' ')[0] != `화베`) return;
     require("node-fetch")(`https://builder.pingpong.us/api/builder/5f367a9de4b00e31991574f1/integration/v0.2/custom/${message.author.id}`,
     {
@@ -232,8 +233,6 @@ client.on('message', message => {
     .then(r => r.json())
     .then(
       ({ response: { replies: [{ text }] } }) => {message.reply(text)})
- 
-
-});
+ });
 
 client.login(process.env.token);
