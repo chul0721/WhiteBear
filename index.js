@@ -214,6 +214,25 @@ client.on('message', message => {
   }
  
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    if(message.content.split(' ')[0] != `${prefix}`) return;
+    require("node-fetch")(`https://builder.pingpong.us/api/builder/5f367a9de4b00e31991574f1/integration/v0.2/custom/${message.author.id}`,
+    {
+      method: "POST",
+      headers:{
+                "Authorization": `Basic a2V5OjczOWMzNWI1NzFiOGJlYjMwMjlmOWU3MmY0Y2Y0YzAx`,
+                "Content-Type" : "application/json"
+              },
+      body: JSON.stringify({
+        request:{
+                  query: message.content.split(' ')
+                }
+      })
+    }
+    )
+    .then(r => r.json())
+    .then(
+      ({ response: { replies: [{ text }] } }) => {message.reply(text)})
+    });
 
 });
 
