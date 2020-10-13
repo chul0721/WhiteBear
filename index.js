@@ -47,7 +47,7 @@ client.on('ready', () => {
                 client.user.setPresence({
                     status: 'online',
                     activity: {
-                        name: `저는 int님의 아들이에요!`,
+                        name: `접두사를 "화베"라고 쓴 후 뒤에 말을 쓰면 일상대화가 가능합니다!`,
                         type: 'PLAYING'
                     }
                 });
@@ -139,7 +139,6 @@ client.on('message', message => {
     .addFields(
       { name: '도움', value: 'WhiteBear의 사용법을 알려드려요.' },
       { name: '\u200B', value: '\u200B' },
-      { name: '화베 {말}', value: '일상대화가 가능합니다!', inline: true },
       { name: '도움 일반', value: '해당 메시지를 보낸 서버의 정보를 알려드립니다.', inline: true },
       { name: '도움 관리', value: '해당 메시지를 보낸 서버의 정보를 알려드립니다.', inline: true },
       { name: '도움 정보', value: '자신의 레벨을 알려줍니다.', inline: true },
