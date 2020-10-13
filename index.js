@@ -232,7 +232,7 @@ client.on('message', message => {
     .then(r => r.json())
     .then(
       ({ response: { replies: [{ text }] } }) => {message.reply(text)})
-    });
+ 
 
 });
 
