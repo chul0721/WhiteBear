@@ -272,11 +272,11 @@ client.on('message', message => {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 client.on('message', message => {
     if(message.content.split(' ')[0] != `화베`) return;
-    require("node-fetch")(`https://builder.pingpong.us/api/builder/5f367a9de4b00e31991574f1/integration/v0.2/custom/${message.author.id}`,
+    require("node-fetch")(`https://builder.pingpong.us/api/builder/${pingpongid}/integration/v0.2/custom/${message.author.id}`,
     {
       method: "POST",
       headers:{
-                "Authorization": `Basic a2V5OjczOWMzNWI1NzFiOGJlYjMwMjlmOWU3MmY0Y2Y0YzAx`,
+                "Authorization": `${pingpongauth}`,
                 "Content-Type" : "application/json"
               },
       body: JSON.stringify({
