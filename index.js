@@ -102,7 +102,7 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
 
 client.on('message', message => {
   if(message.channel.type == 'dm') return
-  if(!message.content.startsWith(prefix)) return
+/*  if(!message.content.startsWith(prefix)) return */
   if (message.author.bot) return;
   if (!message.guild) return;
 
