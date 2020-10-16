@@ -143,7 +143,6 @@ client.on('message', message => {
       command.run(client, message, args);
   }
  });
-})
 
 client.on('message', message => {
   if(message.channel.type == 'dm') return
@@ -274,7 +273,7 @@ client.on('message', message => {
 
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const cmd = args.shift().toLowerCase();
-
+});
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 client.on('message', message => {
     if(message.content.split(' ')[0] != `화베`) return;
