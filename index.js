@@ -101,8 +101,53 @@ client.on('messageUpdate', (oldMessage, newMessage) => {
 });
 
 client.on('message', message => {
+  const args = message.content.slice(prefix.length).trim().split(/ +/g);
+  const cmd = args.shift().toLowerCase();
+
+  if (!db[message.author.id]) db[message.author.id] = {
+      xp: 0,
+      level: 0
+  }
+  db[message.author.id].xp++;
+  let userInfo = db[message.author.id];
+  if(userInfo.xp > 100) {
+      userInfo.level++
+      userInfo.xp = 0
+      message.reply("레벨업 하셨습니다.")
+  }
+  if(cmd === "레벨") {
+      let userInfo = db[message.author.id];
+      let member = message.mentions.members.first();
+      let embed = new Discord.MessageEmbed()
+          .setColor(0x4286f4)
+          .addField("Level", userInfo.level)
+          .addField("XP", userInfo.xp+"/100");
+      if(!member) return message.channel.send(embed)
+      let memberInfo = db[member.id]
+      let embed2 = new Discord.MessageEmbed()
+          .setColor(0x4286f4)
+          .addField("Level", memberInfo.level)
+          .addField("XP", memberInfo.xp+"/100")
+      message.channel.send(embed2)
+  }
+  fs.writeFile("./database.json", JSON.stringify(db), (x) => {
+      if (x) console.error(x)
+  });
+  
+  if (cmd.length === 0) return;
+  
+  let command = client.commands.get(cmd);
+  if (!command) command = client.commands.get(client.aliases.get(cmd));
+
+  if (command) {
+      command.run(client, message, args);
+  }
+ });
+})
+
+client.on('message', message => {
   if(message.channel.type == 'dm') return
-/*  if(!message.content.startsWith(prefix)) return */
+  if(!message.content.startsWith(prefix)) return 
   if (message.author.bot) return;
   if (!message.guild) return;
 
@@ -230,45 +275,6 @@ client.on('message', message => {
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const cmd = args.shift().toLowerCase();
 
-  if (!db[message.author.id]) db[message.author.id] = {
-      xp: 0,
-      level: 0
-  }
-  db[message.author.id].xp++;
-  let userInfo = db[message.author.id];
-  if(userInfo.xp > 100) {
-      userInfo.level++
-      userInfo.xp = 0
-      message.reply("레벨업 하셨습니다.")
-  }
-  if(cmd === "레벨") {
-      let userInfo = db[message.author.id];
-      let member = message.mentions.members.first();
-      let embed = new Discord.MessageEmbed()
-          .setColor(0x4286f4)
-          .addField("Level", userInfo.level)
-          .addField("XP", userInfo.xp+"/100");
-      if(!member) return message.channel.send(embed)
-      let memberInfo = db[member.id]
-      let embed2 = new Discord.MessageEmbed()
-          .setColor(0x4286f4)
-          .addField("Level", memberInfo.level)
-          .addField("XP", memberInfo.xp+"/100")
-      message.channel.send(embed2)
-  }
-  fs.writeFile("./database.json", JSON.stringify(db), (x) => {
-      if (x) console.error(x)
-  });
-  
-  if (cmd.length === 0) return;
-  
-  let command = client.commands.get(cmd);
-  if (!command) command = client.commands.get(client.aliases.get(cmd));
-
-  if (command) {
-      command.run(client, message, args);
-  }
- });
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 client.on('message', message => {
     if(message.content.split(' ')[0] != `화베`) return;
