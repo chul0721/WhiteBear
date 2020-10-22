@@ -13,7 +13,7 @@ module.exports = {
     category: "정보 명령어",
     description: "서버 정보를 출력합니다",
     run: async (bot, message, args) => {
-        
+            if(!message.content.startsWith(process.env.prefix)) return 
             let inline = true
             let sicon = message.guild.iconURL;
             let serverembed = new MessageEmbed()
