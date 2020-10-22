@@ -9,6 +9,7 @@ module.exports = {
     description: "이모지로 가위바위보 하는 게임입니다",
     usage: "-가위바위보, 이모지 선택",
     run: async (client, message, args) => {
+        if(!message.content.startsWith(process.env.prefix)) return 
         const embed = new MessageEmbed()
             .setColor("#ffffff")
             .setFooter(message.guild.me.displayName, client.user.displayAvatarURL)
