@@ -1,6 +1,7 @@
 const { Client, MessageAttachment } = require('discord.js');
 const Discord = require('discord.js');
 const API = require("discord.js");
+const ops = require('./config.js');
 const client = new Client({
     disableEveryone: true
 });
