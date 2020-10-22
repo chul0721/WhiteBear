@@ -5,6 +5,7 @@ module.exports = {
     category: "일반 명령어",
     description: "멘션한 유저의 정보를 출력합니다",
     run: async (bot, message, args) => {
+        if(!message.content.startsWith(process.env.prefix)) return 
         let inline = true
         let resence = true
         const status = {
