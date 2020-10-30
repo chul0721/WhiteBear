@@ -2,7 +2,7 @@
 
 Discord Entertainment Bot
 
-<img src="./whitebear.png">
+<img src="/WhiteBear.png">
 
 WhiteBear은 디스코드의 봇으로 오픈소스로 제공하며 다양한 컨텐츠를 갖고 있습니다!
 
