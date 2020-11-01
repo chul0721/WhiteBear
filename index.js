@@ -30,7 +30,7 @@ client.on('ready', () => {
                 client.user.setPresence({
                     status: 'online',
                     activity: {
-                        name: `할로윈 기념 프사인 이것은 Cod3Breaker#0568님에 의해 만들어졌어요!`,
+                        name: `귀엽고 유쾌한 하얀곰이 당신들을 재밌게 해드리러 왔답니다!`,
                         type: 'PLAYING'
                     }
                 });
