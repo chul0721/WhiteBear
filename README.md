@@ -17,3 +17,6 @@ WhiteBear의 문의를 위해서는 https://discord.gg/CkFetJm 에 들어와주�
 
 ------------
 2020 int © All Rights Reserved.
+
+
++ 현재 개발 중지된 상태입니다.
