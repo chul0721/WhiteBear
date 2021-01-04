@@ -16,8 +16,8 @@ module.exports = {
         if(!channelName){
             return message.channel.send('메시지를 전송할 채널이 존재하지 않습니다.')
         }
-        let title = args[2];
-        let msg = args[3];
+        let title = args[0];
+        let msg = args[1];
         const noticeEmbed = new Discord.MessageEmbed()
         .setColor('RANDOM')
         .setTitle('WhiteBear 공지')
