@@ -11,11 +11,13 @@ module.exports = {
                 return message.channel.send('봇의 관리자만 사용할 수 있어요.')
             }
         }
-        let channelName = message.guild.channels.cache.find(channel => channel.name.toLowerCase().includes("화베"))
-        if(!channelName) return
+        let channelName = message.guild.channels.cache.find(channel => channel.name.toLowerCase().includes("화베")) 
+        
+        if(!channelName){
+            return message.channel.send('메시지를 전송할 채널이 존재하지 않습니다.')
+        }
         let title = args[2];
         let msg = args[3];
-
         const noticeEmbed = new Discord.MessageEmbed()
         .setColor('RANDOM')
         .setTitle('WhiteBear 공지')
@@ -26,7 +28,7 @@ module.exports = {
         .setTimestamp()
         .setFooter(message.author.tag, message.author.displayAvatarURL())
         
-        message.channel.send(noticeEmbed)
+        channelName.send(noticeEmbed)
         return
     }
 }
