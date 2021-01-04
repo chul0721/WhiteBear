@@ -18,17 +18,52 @@ module.exports = {
         }
         let title = args[0];
         let msg = args[1];
-        const noticeEmbed = new Discord.MessageEmbed()
-        .setColor('RANDOM')
-        .setTitle('WhiteBear 공지')
-        .setAuthor('WhiteBear')
-        .addFields(
-          { name: `${title}`, value: `${msg}`, inline: true },
-        )
-        .setTimestamp()
-        .setFooter(message.author.tag, message.author.displayAvatarURL())
-        
-        channelName.send(noticeEmbed)
-        return
+
+        if(!title) return message.channel.send('공지 제목을 입력해주세요.')
+        if(!msg) return message.channel.send('내용을 입력해주세요.')
+
+        const embed = new Discord.MessageEmbed()
+        .setAuthor('RANDOM')
+        .setTitle('공지 내용이 맞나요?')
+        .addField(`${title}`, `${msg}`, true)
+        let m = await message.channel.send({
+            embed: embed
+        });
+        await m.react('✅');
+        await m.react('❌');
+        const filter = (r, u) => u.id == message.author.id && (r.emoji.name == '✅' || r.emoji.name == '❌');
+        const collector = m.createReactionCollector(filter, {
+            max: 1
+        });
+        collector.on('end', async collected => {
+            if (collected.first().emoji.name == '✅') {
+                const noticeEmbed = new Discord.MessageEmbed()
+                    .setColor('RANDOM')
+                    .setTitle('WhiteBear 공지')
+                    .setAuthor('WhiteBear')
+                    .addFields(
+                    { name: `${title}`, value: `${msg}`, inline: true },
+                    )
+                    .setTimestamp()
+                    .setFooter(message.author.tag, message.author.displayAvatarURL())
+
+                channelName.send(noticeEmbed)
+
+                embed.setTitle('공지를 보냈어요.')
+                    .setColor('RANDOM')
+                    .setTimestamp()
+                await m.edit({
+                    embed: embed
+                });
+                return
+            } else {
+                embed.setTitle('공지 전송이 취소되었어요.')
+                .setColor('RANDOM')
+                .setTimestamp()
+                m.edit({
+                    embed: embed
+                });
+            }
+        })
     }
 }
