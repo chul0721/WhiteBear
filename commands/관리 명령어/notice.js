@@ -6,7 +6,10 @@ module.exports = {
     run: async (client, message, args, ops) => {
         const prefix = "화베야 공지 ";
         const msg = args[0].slice(prefix.length).toLowerCase(); // case INsensitive, without prefix
+        let channelName = message.guild.channels.cache.find(channel => channel.name.toLowerCase().includes("화베"))
 
-        message.reply(msg)
+        if(channelName){
+            channelName.send(msg)
+        }
     }
 }
