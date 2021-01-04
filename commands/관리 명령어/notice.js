@@ -7,7 +7,7 @@ module.exports = {
     run: async (client, message, args, ops) => {
         let i;
         for(i=0;i<=manager.manager.length;i++){
-            if(!message.author.id == manager.manager[i]){
+            if(message.author.id != manager.manager[i]){
                 return message.channel.send('봇의 관리자만 사용할 수 있어요.')
             }
         }
