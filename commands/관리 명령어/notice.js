@@ -11,7 +11,7 @@ module.exports = {
                 return message.channel.send('봇의 관리자만 사용할 수 있어요.')
             }
         }
-        let channelName = guild.channels.cache.find(channel => channel.name.toLowerCase().includes("봇")) 
+        let channelName = client.channels.cache.find(channel => channel.name.includes("봇")) 
         
         if(!channelName){
             return message.channel.send('메시지를 전송할 채널이 존재하지 않습니다.')
