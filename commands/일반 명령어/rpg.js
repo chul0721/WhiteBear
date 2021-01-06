@@ -7,12 +7,12 @@ module.exports = {
     description: '화베야 도박 {돈}',
     run: async (client, message, args, ops) => {
         let id = message.author.id
-        let user = userInfo.user[id]
+        let user = JSON.parse(fs.readFileSync("./database.json", "utf8"));
         if(args[0] == "가입") {
             if(userInfo.user){
                 return message.channel.send("이미 도박에 가입한 유저입니다")
             }
-            fs.writeFile("./money.json", user, (err) => {
+            fs.writeFile("./money.json", JSON.stringify(user), (err) => {
                 if (err) {
                     return console.error(err)
                 }
