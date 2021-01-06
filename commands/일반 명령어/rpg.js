@@ -13,7 +13,7 @@ module.exports = {
             }
             fs.writeFile("./money.json", JSON.stringify(user), (err) => {
                 message.channel.send("가입을 완료하였습니다.");
-                if (x) console.error(x)
+                if (err) console.error(err)
             });
         }
         if(!userInfo.user){
