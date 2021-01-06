@@ -1,6 +1,5 @@
 const fs = require('fs');
 const Discord = require('discord.js');
-const manager = require('./manager.json');
 module.exports = {
     name: '도박',
     category: "일반 명령어",
