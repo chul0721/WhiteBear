@@ -12,8 +12,7 @@ module.exports = {
             if(userInfo.user){
                 return message.channel.send("이미 도박에 가입한 유저입니다")
             } else {
-                user[id]
-                fs.writeFile("./money.json", JSON.stringify(user), (err) => {
+                fs.writeFile("./money.json", user[id], (err) => {
                     if (err) {
                             return console.error(err)
                     } else {
