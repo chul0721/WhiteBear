@@ -17,7 +17,9 @@ module.exports = {
                     return console.error(err)
                 }
             });
-            return message.channel.send("가입을 완료하였습니다.");
+            return message.channel.send("가입을 완료하였습니다.").then(
+                console.log("가입 완료 : " + user)
+            )
         }
         if(!userInfo.user.id) {
             return message.channel.send("가입되지 않은 유저입니다.").then(
