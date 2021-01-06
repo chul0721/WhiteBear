@@ -12,14 +12,16 @@ module.exports = {
             if(userInfo.user){
                 return message.channel.send("이미 도박에 가입한 유저입니다")
             } else {
+                user[id]
                 fs.writeFile("./money.json", JSON.stringify(user), (err) => {
                     if (err) {
                             return console.error(err)
+                    } else {
+                        return message.channel.send("가입을 완료하였습니다.").then(
+                            console.log("가입 완료 : " + user)
+                        )
                     }
                 });
-                return message.channel.send("가입을 완료하였습니다.").then(
-                    console.log("가입 완료 : " + user)
-                )
             }
         }
         if(!userInfo.user.id) {
