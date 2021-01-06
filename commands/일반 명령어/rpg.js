@@ -7,7 +7,7 @@ module.exports = {
     description: '화베야 도박 {돈}',
     run: async (client, message, args, ops) => {
         let id = message.author.id
-        let user = JSON.parse(fs.readFileSync("./database.json", "utf8"));
+        let user = userInfo[user]
         if(args[0] == "가입") {
             if(userInfo.user){
                 return message.channel.send("이미 도박에 가입한 유저입니다")
