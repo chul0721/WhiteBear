@@ -7,12 +7,12 @@ module.exports = {
     description: '화베야 도박 {돈}',
     run: async (client, message, args, ops) => {
         let id = message.author.id
-        let user = userInfo[user]
+        let user = userInfo[id]
         if(args[0] == "가입") {
             if(userInfo.user){
                 return message.channel.send("이미 도박에 가입한 유저입니다")
             } else {
-                fs.writeFile("./money.json", user[id], (err) => {
+                fs.writeFile("./money.json", user, (err) => {
                     if (err) {
                             return console.error(err)
                     } else {
