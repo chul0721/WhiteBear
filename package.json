@@ -2,23 +2,25 @@
   "name": "whitebear",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chul0721/WhiteBear.git"
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {},
+  "bugs": {
+    "url": "https://github.com/chul0721/WhiteBear/issues"
+  },
+  "homepage": "https://github.com/chul0721/WhiteBear#readme",
   "dependencies": {
-    "ascii-table": "0.0.9",
-    "common-tags": "^1.8.0",
-    "discord.js": "^12.2.0",
-    "dotenv": "^8.2.0",
-    "fs": "0.0.1-security",
-    "node-fetch": "^2.6.1",
-    "random-puppy": "^1.1.0",
-    "request": "^2.88.2",
-    "response": "^0.18.0"
+    "@google-cloud/dialogflow": "^3.3.0",
+    "@google-cloud/storage": "^5.7.3",
+    "dialogflow": "^1.2.0",
+    "discord.js": "^12.5.1",
+    "uuid": "^8.3.2"
   }
 }
